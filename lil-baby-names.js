@@ -7,7 +7,8 @@ new Vue({
         startsWith: '',
         names: [],
 	sortKey: ['baby_name'],
-	sortOrder: ['asc'],
+	sortOrder: ['asc'],['desc']
+	sortValue: ['sort_value']
         last_event: 0,
         cancel: 0
     },
@@ -21,7 +22,7 @@ new Vue({
     },
     computed: {
 	namesSorted: function() {
-	    return _.orderBy(this.names, this.sortKey, this.sortOrder);
+	    return _.orderBy(this.names, this.sortKey, this.sortOrder,);
 	},
     },
     methods: {
@@ -29,8 +30,8 @@ new Vue({
             axios.get(
                 'http://names.sinistercode.com:4242/api/names?'
                     + 'format=json'
-                    + '&sort=length-asc'
-		//this is called later, so I probably need to change here
+		    + '&sort='
+		    + 'this.sort'
                     + '&contains-letters=' + this.contains
                     + '&starts-with=' + this.startsWith
             ).then(function (response) => {
@@ -49,4 +50,4 @@ new Vue({
 	    }
         },
     }
-});
+}); 
