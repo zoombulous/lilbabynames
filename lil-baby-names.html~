@@ -1,11 +1,20 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Lil Baby Names Demo</title>
+  <title>Lil' Baby Names</title>
 </head>
+<link rel="stylesheet" href="styles.css">
 <body>
+  <h1>Lil' Baby Names</h1>
   <div id="app">
     <input v-model="startsWith" placeholder="starts with"/>
+    <select v-model="selected">
+  <option disabled value="">Sort By</option>
+  <option>A-Z</option>
+  <option>Z-A</option>
+  <option>Length Ascending</option>
+</select>
+<span>Selected: {{ selected }}</span>
     <input v-model="contains" placeholder="contains these letters"/>
     <button id="btn" class="" v-on:click="findNames">Go</button>
     <p>Result:</p>
@@ -17,3 +26,4 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.2/axios.js"></script>
   <script src="lil-baby-names.js"></script>
 </body>
+
