@@ -1,0 +1,15 @@
+bosy {
+    background-color: lightgrey;
+}
+h1 {
+    color: black;
+    text-align: center;
+}
+p {
+    color: orange;
+    font-weight: 900;
+    text-align: center;
+}
+button {
+    text-align: center;
+}

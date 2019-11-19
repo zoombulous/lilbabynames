@@ -1,0 +1,19 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Lil Baby Names Demo</title>
+</head>
+<body>
+  <div id="app">
+    <input v-model="startsWith" placeholder="starts with"/>
+    <input v-model="contains" placeholder="contains these letters"/>
+    <button id="btn" class="" v-on:click="findNames">Go</button>
+    <p>Result:</p>
+    <ul>
+      <li v-for="name in names">{{ name }}</li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.2/axios.js"></script>
+  <script src="lil-baby-names.js"></script>
+</body>

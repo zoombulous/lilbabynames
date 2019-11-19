@@ -1,0 +1,6 @@
+* baby-names-web
+Example web client for the Lil' Baby Names API
+
+This is an example of using the Vue.js framework to create a Lil' Baby Names client.  To run the app, just clone this repo, then use a browser to navigate to the file lil-baby-names.html.
+
+For example, if you clone to /home/james/r/lil-baby-names in your computer, you can start the app by navigating to [[file:///home/james/r/baby-names-web/lil-baby-names.html][/home/james/r/baby-names-web/lil-baby-names.html]].
