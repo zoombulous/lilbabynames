@@ -7,8 +7,9 @@ new Vue({
         startsWith: '',
         names: [],
 	sortKey: ['baby_name'],
-	sortOrder: ['asc'],['desc']
-	sortValue: ['sort_value']
+	sortValue: ['sort_value'],
+	orderIndex: ['asc'],['desc'],
+	order: [],
         last_event: 0,
         cancel: 0
     },
@@ -22,7 +23,7 @@ new Vue({
     },
     computed: {
 	namesSorted: function() {
-	    return _.orderBy(this.names, this.sortKey, this.sortOrder,);
+	    return _.orderBy(this.names, this.sortKey, this.orderIndex,);
 	},
     },
     methods: {
