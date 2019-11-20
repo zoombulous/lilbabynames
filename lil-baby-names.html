@@ -4,11 +4,19 @@
   <title>Lil' Baby Names</title>
 </head>
 <link rel="stylesheet" href="styles.css">
-<body>
+<body>  
   <h1>Lil' Baby Names</h1>
+  <form>
+        <label>Sort By</label>
+        <select id = "myList">
+          <option value = "1">one</option>
+          <option value = "2">two</option>
+        </select>
+  </form>
   <div id="app">
     <input v-model="startsWith" placeholder="starts with"/>
     <input v-model="contains" placeholder="contains these letters"/>
+    <button v-on:click="counter += 1">Add 1</button>
     <button id="btn" class="" v-on:click="findNames">Go</button>
     <p>Result:</p>
     <ul>
