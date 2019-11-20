@@ -6,17 +6,25 @@
 <link rel="stylesheet" href="styles.css">
 <body>  
   <h1>Lil' Baby Names</h1>
-  <form>
-        <label>Sort By</label>
-        <select id = "myList">
-          <option value = "1">one</option>
-          <option value = "2">two</option>
-        </select>
-  </form>
   <div id="app">
+    	<label>
+	  for="sortOrder"
+	  class="control-label">Sort
+	</label>
+	<select
+	   v-model="sortOrder"
+	   name="order"
+	   id="order"
+	   class="form-control"
+	   tabindex="12">
+	  <option v-for="(order,orderIndex) in orders"
+		  :key="sort.id"
+		  :value="sort.id">
+	    {{ sort.name }}
+	    </option>			     
+	</select>	
     <input v-model="startsWith" placeholder="starts with"/>
     <input v-model="contains" placeholder="contains these letters"/>
-    <button v-on:click="counter += 1">Add 1</button>
     <button id="btn" class="" v-on:click="findNames">Go</button>
     <p>Result:</p>
     <ul>
@@ -27,5 +35,3 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.2/axios.js"></script>
   <script src="lil-baby-names.js"></script>
 </body>
-
-
