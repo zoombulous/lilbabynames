@@ -6,15 +6,14 @@ new Vue({
         contains: '',
         startsWith: '',
         names: [],
-        last_event: 0,
-        cancel: 0
+        lastEvent: 0
     },
     watch: {
+        startsWith() {
+            this.throttledFindNames();
+        },
         contains() {
-            t = (new Date()).getTime();
-            if(t - this.last_event > 500)
-                this.findNames();
-            this.last_event = t;
+            this.throttledFindNames();
         }
     },
     methods: {
@@ -28,6 +27,13 @@ new Vue({
             ).then((response) => {
                     this.names = response.data.results.map(item => item.name);
                 });
+        },
+        throttledFindNames() {
+            t = (new Date()).getTime();
+            if(t - this.lastEvent > 500)
+                this.findNames();
+            else
+                this.lastEvent = t;
         }
     }
 });
