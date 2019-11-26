@@ -8,13 +8,11 @@
   <h1>Lil' Baby Names</h1>
   <div id="app">
 	<select
-	   v-model="sortOrder"
+	   v-model="orderIndex"
 	   name="order"
 	   id="order">
-	  <option v-for="(order,orderIndex) in orders"
-		  :key="sort.id"
-		  :value="sort.id">
-	    {{ sort.key }}
+	  <option v-for="order in orders">
+	    {{ order }}
 	    </option>			     
 	</select>	
     <input v-model="startsWith" placeholder="starts with"/>
