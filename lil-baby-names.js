@@ -13,12 +13,12 @@ new Vue({
         last_event: 0,
         cancel: 0
     },
-    watch: {
+ watch: {
+        startsWith() {
+            this.throttledFindNames();
+        },
         contains() {
-            t = (new Date()).getTime();
-            if(t - this.last_event > 500)
-                this.findNames();
-            this.last_event = t;
+            this.throttledFindNames();
         }
     },
     computed: {
@@ -40,6 +40,13 @@ new Vue({
 	    });.catch(function(error) {
 		console.log(error);
             });
+	},
+	throttledFindNames() {
+            t = (new Date()).getTime();
+            if(t - this.lastEvent > 500)
+                this.findNames();
+            else
+                this.lastEvent = t;
 	},
 	sortBy: function(key) {
 	    if (key == this.sortKey) {
