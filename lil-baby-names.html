@@ -10,10 +10,9 @@
 	<select
 	   v-model="orderIndex"
 	   name="order"
-	   id="order">
-	  <option v-for="order in orders">
-	    {{ order }}
-	    </option>			     
+	   id="order"
+	   onchange="sortBy">
+	  <option v-for="order in orders">{{ order }}</option>			
 	</select>	
     <input v-model="startsWith" placeholder="starts with"/>
     <input v-model="contains" placeholder="contains these letters"/>
