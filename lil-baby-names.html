@@ -7,20 +7,14 @@
 <body>  
   <h1>Lil' Baby Names</h1>
   <div id="app">
-    	<label>
-	  for="sortOrder"
-	  class="control-label">Sort
-	</label>
 	<select
 	   v-model="sortOrder"
 	   name="order"
-	   id="order"
-	   class="form-control"
-	   tabindex="12">
+	   id="order">
 	  <option v-for="(order,orderIndex) in orders"
 		  :key="sort.id"
 		  :value="sort.id">
-	    {{ sort.name }}
+	    {{ sort.key }}
 	    </option>			     
 	</select>	
     <input v-model="startsWith" placeholder="starts with"/>
