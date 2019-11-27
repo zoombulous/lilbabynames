@@ -19,7 +19,10 @@ new Vue({
         },
         contains() {
             this.throttledFindNames();
-        }
+        },
+	orderIndex() {
+sortBy()
+	}
     },
     computed: {
 	namesSorted: function() {
