@@ -10,8 +10,7 @@
 	<select
 	   v-model="orderIndex"
 	   name="order"
-	   id="order"
-	   onchange="sortBy">
+	   id="order">
 	  <option v-for="order in orders">{{ order }}</option>			
 	</select>	
     <input v-model="startsWith" placeholder="starts with"/>
