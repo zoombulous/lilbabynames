@@ -7,6 +7,14 @@
 <body>
   <h1>Lil' Baby Names</h1>
   <div id="app">
+    <select v-model="gender">
+      <option value="">gender</option>
+    <option>male</option>
+    <option>mostly-male</option>
+    <option>gender-neutral</option>
+    <option>mostly-female</option>
+    <option>female</option>
+    <select/>
     <select v-model="sortBy">
     <option disabled value="">sort by</option>
     <option>alpha</option>
@@ -16,7 +24,7 @@
     <option>freq-desc</option>
     <option>length</option>
     <option>length-desc</option>
-           <select/>
+    <select/>
     <input v-model="startsWith" placeholder="starts with"/>
     <input v-model="contains" placeholder="contains these letters"/>
     <button id="btn" class="" v-on:click="findNames">Go</button>
