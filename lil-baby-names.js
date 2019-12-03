@@ -5,16 +5,16 @@ new Vue({
     data: {
         contains: '',
         startsWith: '',
+        sortBy: '',
         names: [],
-        last_event: 0,
-        cancel: 0
+        lastEvent: 0
     },
     watch: {
+        startsWith() {
+            this.throttledFindNames();
+        },
         contains() {
-            t = (new Date()).getTime();
-            if(t - this.last_event > 500)
-                this.findNames();
-            this.last_event = t;
+            this.throttledFindNames();
         }
     },
     methods: {
@@ -22,12 +22,19 @@ new Vue({
             axios.get(
                 'http://names.sinistercode.com:4242/api/names?'
                     + 'format=json'
-                    + '&sort=length-asc'
+                    + '&sort=' + this.sortBy
                     + '&contains-letters=' + this.contains
                     + '&starts-with=' + this.startsWith
             ).then((response) => {
                     this.names = response.data.results.map(item => item.name);
                 });
+        },
+        throttledFindNames() {
+            t = (new Date()).getTime();
+            if(t - this.lastEvent > 500)
+                this.findNames();
+            else
+                this.lastEvent = t;
         }
     }
 });
