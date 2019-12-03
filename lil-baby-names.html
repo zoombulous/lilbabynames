@@ -7,6 +7,7 @@
 <body>
   <h1>Lil' Baby Names</h1>
   <div id="app">
+    <input v-model="sortBy" placeholder="sort by"/>
     <input v-model="startsWith" placeholder="starts with"/>
     <input v-model="contains" placeholder="contains these letters"/>
     <button id="btn" class="" v-on:click="findNames">Go</button>
