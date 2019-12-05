@@ -7,6 +7,7 @@ new Vue({
         startsWith: '',
         sortBy: '',
         gender:'',
+        minLength:'',
         names: [],
         lastEvent: 0
     },
@@ -27,6 +28,7 @@ new Vue({
                     + '&contains-letters=' + this.contains
                     + '&starts-with=' + this.startsWith
                     + '&gender=' + this.gender
+                    + '&sort=length&min-length=' + this.minLength
             ).then((response) => {
                     this.names = response.data.results.map(item => item.name);
                 });
