@@ -7,6 +7,7 @@
 <body>
   <h1>Lil' Baby Names</h1>
   <div id="app">
+    <input v-model="minLength" placeholder="minimum length"/>
     <select v-model="gender">
       <option value="">gender</option>
     <option>male</option>
@@ -17,13 +18,12 @@
     <select/>
     <select v-model="sortBy">
     <option disabled value="">sort by</option>
-    <option>alpha</option>
-    <option>alpha-asc</option>
-    <option>freq</option>
-    <option>freq-asc</option>
-    <option>freq-desc</option>
-    <option>length</option>
-    <option>length-desc</option>
+    <option label="alpha">A-Z</option>
+    <option label="alpha-asc">Z-A</option>
+    <option label="freq-asc">Most Popular</option>
+    <option label="freq-desc">Least Popular</option>
+    <option label="length">Shortest to Longest</option>
+    <option label="length-desc">Longest to Shortest</option>
     <select/>
     <input v-model="startsWith" placeholder="starts with"/>
     <input v-model="contains" placeholder="contains these letters"/>
