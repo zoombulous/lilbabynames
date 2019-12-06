@@ -2,11 +2,12 @@ Vue.prototype.$http = axios;
 
 new Vue({
     el: '#app',
+    vuetify: new Vuetify(),
     data: {
         contains: '',
         startsWith: '',
         sortBy: 'alpha',
-        gender:'gender-neutral',
+        gender:'male,female',
         minLength:'1',
         maxLength:'25',
         names: [],
