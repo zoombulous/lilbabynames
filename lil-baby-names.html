@@ -7,34 +7,37 @@
 <body>
   <h1>Lil' Baby Names</h1>
   <div id="app">
-    <input v-model="minLength" placeholder="minimum length"/>
-    <input v-model="maxLength" placeholder="maximum length"/>
+    <input v-model="minLength" placeholder="Minimum Length"/>
+    <input v-model="maxLength" placeholder="Maximum Length"/>
     <select v-model="gender">
-      <option value="">gender</option>
-    <option>male</option>
-    <option>mostly-male</option>
-    <option>gender-neutral</option>
-    <option>mostly-female</option>
-    <option>female</option>
-    <select/>
-    <select v-model="sortBy">
-    <option disabled value="">sort by</option>
-    <option value="alpha">A-Z</option>
-    <option value="alpha-desc">Z-A</option>
-    <option value="freq-asc">Unique first</option>
-    <option value="freq-desc">Popular first</option>
-    <option value="length">Short to long</option>
-    <option value="length-desc">Long to short</option>
-    <select/>
-    <input v-model="startsWith" placeholder="starts with"/>
-    <input v-model="contains" placeholder="contains these letters"/>
-    <button id="btn" class="" v-on:click="findNames">Go</button>
-    <p>Result:</p>
-    <ul>
-      <li v-for="name in names">{{ name }}</li>
-    </ul>
+      <option value="male,female">All Genders</option>
+      <option value="male,gender-neutral">All Male</option>
+      <option value="male">Most Masculene</option>
+      <option value="mostly-male">Medium Masculene</option>
+      <option value="gender-neutral">Gender Neutral</option>
+      <option value="mostly-female">Medium Femenine</option>
+      <option value="female">Most Feminine</option>
+      <option value="gender-neutral,female">All Female</option>
+      <select/>
+      <select v-model="sortBy">
+        <option disabled value="">sort by</option>
+        <option value="alpha">A-Z</option>
+        <option value="alpha-desc">Z-A</option>
+        <option value="freq-asc">Least Common</option>
+        <option value="freq-desc">Most Common</option>
+        <option value="length">Shortest</option>
+        <option value="length-desc">Longest</option>
+        <select/>
+        <input v-model="startsWith" placeholder="starts with"/>
+        <input v-model="contains" placeholder="contains these letters"/>
+        <button id="btn" class="" v-on:click="findNames">Go</button>
+        <p>Result:</p>
+        <ul>
+          <li v-for="name in names">{{ name }}</li>
+        </ul>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.2/axios.js"></script>
   <script src="lil-baby-names.js"></script>
 </body>
