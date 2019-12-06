@@ -5,9 +5,10 @@ new Vue({
     data: {
         contains: '',
         startsWith: '',
-        sortBy: '',
-        gender:'',
-        minLength:'',
+        sortBy: 'alpha',
+        gender:'gender-neutral',
+        minLength:'1',
+        maxLength:'25',
         names: [],
         lastEvent: 0
     },
@@ -29,6 +30,7 @@ new Vue({
                     + '&starts-with=' + this.startsWith
                     + '&gender=' + this.gender
                     + '&sort=length&min-length=' + this.minLength
+                    + '&sort=length&max-length=' + this.maxLength
             ).then((response) => {
                     this.names = response.data.results.map(item => item.name);
                 });
