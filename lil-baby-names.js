@@ -11,6 +11,7 @@ new Vue({
         minLength:'1',
         maxLength:'25',
         names: [],
+        pageSize: [10000000000000],
         lastEvent: 0
     },
     watch: {
@@ -32,6 +33,7 @@ new Vue({
                     + '&gender=' + this.gender
                     + '&sort=length&min-length=' + this.minLength
                     + '&sort=length&max-length=' + this.maxLength
+                    + '&page-size=' + this.pageSize
             ).then((response) => {
                     this.names = response.data.results.map(item => item.name);
                 });
@@ -43,5 +45,8 @@ new Vue({
             else
                 this.lastEvent = t;
         }
+    },
+    return: {
+        fontSize: 10
     }
 });
