@@ -1,15 +1,55 @@
-bosy {
-    background-color: lightgrey;
+body {
+    background-image:
+    url("orange.jpg"),
+    url("white.jpg"),
+    url("grey.jpg"),
+    url("lil_baby_names_background.jpg");
+    background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    repeat;
+    background-size:
+    13500px 60px,
+    35000px 139px,
+    382px 7000px,
+    1350px;
+    background-position:
+    top center,
+    top center,
+    50% 50%,
+    80% 20%;
+    background-attachment:
+    scroll,
+    scroll,
+    fixed,
+    fixed;
 }
 h1 {
     color: black;
     text-align: center;
+    text-shadow: 1px 1px 3px rgba(180, 180, 180, 20.5);
+}
+pre {
+    color: black;
+    text-align: left;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 20.5);
+    font-size: 12px;
+    padding-left: 145px;
+    font-weight: bold;
 }
 p {
-    color: orange;
+    color: black;
     font-weight: 900;
     text-align: center;
+    text-shadow: 2px 1.5px 1.5px rgba(255, 255, 255, 5.5);
 }
 button {
     text-align: center;
+}
+ul {
+    list-style-type: none;
+    text-align: center;
+    text-indent: -45px;
+    line-height: 178%;
 }
