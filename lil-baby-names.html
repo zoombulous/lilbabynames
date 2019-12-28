@@ -1,55 +1,98 @@
-<html>
+<!doctype html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href=’https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel=”stylesheet”>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-   <meta charset="utf-8">
-   <style>
-.center {
-  margin: auto;
-  width: 75%;
-  padding: -10px;
-}
-</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <title>Lil' Baby Names</title>
 </head>
   <link rel="stylesheet" href="styles.css">
 <body>
   <h1>Lil' Baby Names</h1>
-  <pre class="tab">
-    Min Length   Max Length          Genders             Sort By             Starts With               Contains</pre>
-  <div id="app" class="center">
-    <input v-model="minLength" placeholder="Minimum Length" size="5"/>
-    <input v-model="maxLength" placeholder="Maximum Length" size="5"/>
-    <select v-model="gender">
-      <option value="male,female">All Genders</option>
-      <option value="male,gender-neutral">All Male</option>
-      <option value="male">Most Masculene</option>
-      <option value="mostly-male">Medium Masculene</option>
-      <option value="gender-neutral">Gender Neutral</option>
-      <option value="mostly-female">Medium Femenine</option>
-      <option value="female">Most Feminine</option>
-      <option value="gender-neutral,female">All Female</option>
-      <select/>
-      <select v-model="sortBy">
-        <option disabled value="">sort by</option>
-        <option value="alpha">A-Z</option>
-        <option value="alpha-desc">Z-A</option>
-        <option value="freq-asc">Least Common</option>
-        <option value="freq-desc">Most Common</option>
-        <option value="length">Shortest</option>
-        <option value="length-desc">Longest</option>
-        <select/>
-        <input v-model="startsWith" placeholder="" size="15"/>
-        <input v-model="contains" placeholder="" size="15"/>
-        <button id="btn" class="" v-on:click="findNames">Go</button>
-        <p>Result:</p>
-        <ul>
-          <li v-for="name in names">{{ name }}</li>
-        </ul>
-  </div>
+  <div id="app" class="parent">
+    <div id="app" class="center">
+      <div id="app" class="row justify-content-center">
+        <div class="row no-gutters">
+          <div id="app" class="col mx-2">
+            <div id="app" class="form-group">
+              <form action="" style="width: 80px; margin: auto">
+                <div for="name" class="control-label">Min</div>
+                <input v-model="minLength" placeholder="" size="5" class="form-control"/>
+              </form>
+            </div>
+          </div>
+          <div id="app" class="col mx-2">
+            <div id="app" class="form-group">
+              <form action="" style="width: 80px; margin: auto">
+                <div for="name" class="control-label">Max</div>
+                <input v-model="maxLength" placeholder="" size="5" class="form-control"/>
+              </form>
+            </div>
+          </div>
+          <div id="app" class="col-sm mx-2">
+            <div id="app" class="form-group">
+              <form action="" style="width: 190px; margin: auto">
+                <div for="name" class="control-label">Genders</div>
+                <select v-model="gender" class="form-control">
+                  <option value="male,mostly-male,neutral,mostly-female,female">All Genders</option>
+                <option value="male,mostly-male,gender-neutral">All Male</option>
+                <option value="male">Most Masculene</option>
+                <option value="male,mostly-male">Medium Masculene</option>
+                <option value="gender-neutral">Gender Neutral</option>
+                <option value="female,mostly-female">Medium Femenine</option>
+                <option value="female">Most Feminine</option>
+                <option value="gender-neutral,female,mostly-female">All Female</option>
+                <select/>
+            </form>
+          </div>
+        </div>
+        <div id="app" class="col-sm mx-2">
+          <div id="app" class="form-group">
+            <form action="" style="width: 190px; margin: auto">
+              <div for="name" class="control-label">Sort</div>
+              <select v-model="sortBy" class="form-control">
+                <option value="alpha">A-Z</option>
+                <option value="alpha-desc">Z-A</option>
+                <option value="freq-asc">Least Common</option>
+                <option value="freq-desc">Most Common</option>
+                <option value="length">Shortest</option>
+                <option value="length-desc">Longest</option>
+                <select/>
+            </form>
+          </div>
+        </div>
+        <div id="app" class="col-sm mx-2">
+          <div id="app" class="form-group">
+            <form action="" style="width: 140px; margin: auto">
+              <div for="name" class="control-label">Starts With</div>
+              <input v-model="startsWith" placeholder="" size="15" class="form-control"/>
+            </form>
+          </div>
+        </div>
+        <div id="app" class="col-sm mx-2">
+          <div id="app" class="form-group">
+            <form action="" style="width: 140px; margin: auto">
+              <div for="name" class="control-label">Contains</div>
+              <input v-model="contains" placeholder="" size="15" class="form-control"/>
+            </form>
+          </div>
+        </div>
+        <div id="app" class="col-sm mx-2 mt-4">
+          <div id="app" class="form-group">
+            <button id="btn" class="btn btn-warning" v-on:click="findNames">Go</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="app" class="center">  
+      <p>Result:</p>
+      <ul>
+        <li v-for="name in names">{{ name }}</li>
+      </ul>
+    </div>
+    </div>
+    </div>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.2/axios.js"></script>
