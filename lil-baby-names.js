@@ -7,7 +7,7 @@ new Vue({
         contains: '',
         startsWith: '',
         sortBy: 'alpha',
-        gender:'male,female',
+        gender:'male,mostly-male,neutral,mostly-female,female',
         minLength:'1',
         maxLength:'25',
         names: [],
