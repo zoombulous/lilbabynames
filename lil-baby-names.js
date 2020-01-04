@@ -11,16 +11,20 @@ new Vue({
         minLength:'1',
         maxLength:'25',
         names: [],
-        pageSize: 50,
+        pageSize: [10],
+        pageNumber: [1],
         lastEvent: 0
     },
     watch: {
+        pageNumber() {
+            this.throttledFindNames();
+        },
         startsWith() {
             this.throttledFindNames();
         },
         contains() {
             this.throttledFindNames();
-        }
+        },
     },
     methods: {
         findNames() {
@@ -34,9 +38,16 @@ new Vue({
                     + '&sort=length&min-length=' + this.minLength
                     + '&sort=length&max-length=' + this.maxLength
                     + '&page-size=' + this.pageSize
+                    + '&page=' + this.pageNumber
             ).then((response) => {
                     this.names = response.data.results.map(item => item.name);
                 });
+        },
+        nextPage() {
+            this.pageNumber++;
+        },
+        previousPage() {
+            this.pageNumber--;
         },
         throttledFindNames() {
             t = (new Date()).getTime();
@@ -49,4 +60,4 @@ new Vue({
     return: {
         fontSize: 10
     }
-}); 
+});
