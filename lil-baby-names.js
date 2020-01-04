@@ -49,4 +49,4 @@ new Vue({
     return: {
         fontSize: 10
     }
-});
+}); 
