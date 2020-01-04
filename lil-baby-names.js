@@ -11,7 +11,7 @@ new Vue({
         minLength:'1',
         maxLength:'25',
         names: [],
-        pageSize: [10000000000000],
+        pageSize: 50,
         lastEvent: 0
     },
     watch: {
