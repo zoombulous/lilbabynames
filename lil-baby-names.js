@@ -17,6 +17,12 @@ new Vue({
     },
     watch: {
         pageNumber() {
+            this.throttledFindNamesLeavePage();
+        },
+        minLength() {
+            this.throttledFindNames();
+        },
+        maxLength() {
             this.throttledFindNames();
         },
         startsWith() {
@@ -43,6 +49,9 @@ new Vue({
                     this.names = response.data.results.map(item => item.name);
                 });
         },
+        resetPage() {
+            this.pageNumber=1;
+        },
         nextPage() {
             this.pageNumber++;
         },
@@ -50,6 +59,14 @@ new Vue({
             this.pageNumber--;
         },
         throttledFindNames() {
+            t = (new Date()).getTime();
+            if(t - this.lastEvent > 500)
+                this.findNames(),
+            this.resetPage();
+            else
+                this.lastEvent = t;
+        },
+        throttledFindNamesLeavePage() {
             t = (new Date()).getTime();
             if(t - this.lastEvent > 500)
                 this.findNames();
