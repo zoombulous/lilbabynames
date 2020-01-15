@@ -13,12 +13,16 @@ new Vue({
         names: [],
         pageSize: [10],
         pageNumber: [1],
+        totalResults: 0,
         lastEvent: 0
     },
     watch: {
         pageNumber() {
             this.throttledFindNamesLeavePage();
         },
+        lastPage() {
+            this.throttledFindNamesLeavePage();
+        },  
         minLength() {
             this.throttledFindNames();
         },
@@ -46,7 +50,8 @@ new Vue({
                     + '&page-size=' + this.pageSize
                     + '&page=' + this.pageNumber
             ).then((response) => {
-                    this.names = response.data.results.map(item => item.name);
+                this.names = response.data.results.map(item => item.name);
+                this.totalResults = response.data['total-matches'];
                 });
         },
         resetPage() {
@@ -57,6 +62,9 @@ new Vue({
         },
         previousPage() {
             this.pageNumber--;
+        },
+        lastPage() {
+            this.pageNumber = Math.ceil(this.totalResults / 10);
         },
         throttledFindNames() {
             t = (new Date()).getTime();
